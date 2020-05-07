@@ -46,7 +46,6 @@ public abstract class Vehicle implements Movable {
         return "Vehicle{" +
                 "name='" + name + '\'' +
                 ", currentDirection='" + currentDirection + '\'' +
-                ", productionYear=" + productionYear +
-                '}';
+                ", productionYear=" + productionYear + '}';
     }
 }

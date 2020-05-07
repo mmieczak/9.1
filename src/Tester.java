@@ -1,22 +1,32 @@
 public class Tester {
     public static void main(String[] args) {
 
-        Vehicle[] vehicleCatalog = new Vehicle[5];
-        vehicleCatalog[0] = new Car("Porsche Panamera", 2018, 4);
-        vehicleCatalog[1] = new MotorBike("Suzuki Hayabusa", 2016, 300);
-        vehicleCatalog[2] = new MotorBike("Harley FLHX Street Glide", 2007, 200);
-        vehicleCatalog[3] = new Car("VW Passat", 2019, 5);
-        vehicleCatalog[4] = new Car("Ford Fiesta", 2015, 5);
+        //Cars table
+        Car[] cars = new Car[2];
+        cars[0] = new Car("Ford Mustang", 1965, 4);
+        cars[1] = new Car("Porsche Panamera", 2019, 4);
 
-        vehicleCatalog[0].goForward();
-        System.out.println("Direction: " + vehicleCatalog[0].getCurrentDirection());
-        vehicleCatalog[0].goBack();
-        System.out.println(vehicleCatalog[0].toString());
+        //Renting registry
+        RentableCar[] rentRegistry = new RentableCar[10];
+        //Rent car 1
+        rentRegistry[0] = new RentableCar(cars[0]);
+        rentRegistry[0].rent("John", "Snow", "123456789");
+        System.out.println("Renting a car...");
 
-        vehicleCatalog[2].turnLeft();
-        System.out.println("Direction: " + vehicleCatalog[2].getCurrentDirection());
-        vehicleCatalog[2].turnRight();
-        System.out.println(vehicleCatalog[2].toString());
+        runReturnCarScenario(rentRegistry[0]);
 
+        //Rent car 2
+        rentRegistry[1] = new RentableCar(cars[1]);
+        rentRegistry[1].rent("Mike", "Tyson", "666666666");
+        System.out.println("Renting a car...");
+        runReturnCarScenario(rentRegistry[1]);
+    }
+
+    public static void runReturnCarScenario(RentableCar rentCar) {
+        System.out.println("\t>" + rentCar.toString());
+        System.out.println("Is car rent currently: " + rentCar.isRent());
+        System.out.println("\t>Car has returned");
+        rentCar.handOver();
+        System.out.println("Is car rent currently: " + rentCar.isRent());
     }
 }

@@ -6,6 +6,10 @@ public class Car extends Vehicle {
         this.seatsAmount = seatsAmount;
     }
 
+    public int getSeatsAmount() {
+        return seatsAmount;
+    }
+
     @Override
     public String toString() {
         return "Car{" +

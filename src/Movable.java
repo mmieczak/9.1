@@ -6,5 +6,4 @@ public interface Movable {
     void goForward();
 
     void goBack();
-
 }
